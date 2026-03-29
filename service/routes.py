@@ -121,3 +121,22 @@ def get_accounts(account_id):
 
     # 3. Return the serialized version and 200 OK
     return account.serialize(), status.HTTP_200_OK
+
+######################################################################
+# LIST ALL ACCOUNT
+######################################################################
+
+@app.route("/accounts", methods=["GET"])
+def list_accounts():
+    """It should List all Accounts"""
+    app.logger.info("Request to list Accounts")
+
+    # 1. Use the Account.all() method to retrieve all accounts
+    accounts = Account.all()
+
+    # 2. Create a list of serialized accounts
+    account_list = [account.serialize() for account in accounts]
+
+    # 3. Return the list and 200 OK
+    return jsonify(account_list), status.HTTP_200_OK
+
