@@ -103,8 +103,9 @@ def check_content_type(media_type):
 ######################################################################
 # READ AN ACCOUNT
 ######################################################################
-@app.route("/accounts/<int:account_id>", methods=["GET"])
 
+
+@app.route("/accounts/<int:account_id>", methods=["GET"])
 def get_accounts(account_id):
     """
     Reads an Account
@@ -114,7 +115,7 @@ def get_accounts(account_id):
 
     # 1. Use the Account.find() method to find the account
     account = Account.find(account_id)
-    
+
     # 2. Abort with a 404 if it cannot be found
     if not account:
         abort(status.HTTP_404_NOT_FOUND, f"Account with id [{account_id}] could not be found.")
@@ -125,6 +126,7 @@ def get_accounts(account_id):
 ######################################################################
 # LIST ALL ACCOUNT
 ######################################################################
+
 
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
@@ -144,6 +146,7 @@ def list_accounts():
 ######################################################################
 # UPDATE  AN EXISTING  ACCOUNT
 ######################################################################
+
 
 @app.route("/accounts/<int:account_id>", methods=["PUT"])
 def update_accounts(account_id):
@@ -169,6 +172,7 @@ def update_accounts(account_id):
 # DELETE  AN EXISTING  ACCOUNT
 ######################################################################
 
+
 @app.route("/accounts/<int:account_id>", methods=["DELETE"])
 def delete_accounts(account_id):
     """
@@ -179,12 +183,10 @@ def delete_accounts(account_id):
 
     # 1. Find the account
     account = Account.find(account_id)
-    
+
     # 2. If it exists, delete it. If not, do nothing (Idempotent)
     if account:
         account.delete()
 
     # 3. Return 204 NO CONTENT
     return "", status.HTTP_204_NO_CONTENT
-
-
