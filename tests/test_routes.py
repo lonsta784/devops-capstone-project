@@ -127,7 +127,7 @@ class TestAccountService(TestCase):
     ######################################################################
     #  A C C O U N T  READ  T E S T   C A S E S
     ######################################################################
-    
+
     def test_get_account(self):
         """It should Read a single Account"""
         account = self._create_accounts(1)[0]
@@ -142,7 +142,7 @@ class TestAccountService(TestCase):
         """It should not Read an Account that is not found"""
         # We use '0' because database IDs usually start at 1
         resp = self.client.get(f"{BASE_URL}/0")
-        
+
         # Assert that the server returns a 404 Not Found
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
 
@@ -192,11 +192,11 @@ class TestAccountService(TestCase):
         """It should Delete an Account"""
         # 1. Create an account to delete
         account = self._create_accounts(1)[0]
-        
+
         # 2. Make the delete call
         resp = self.client.delete(f"{BASE_URL}/{account.id}")
         self.assertEqual(resp.status_code, status.HTTP_204_NO_CONTENT)
-        
+
         # 3. Verify it is gone by trying to GET it
         resp = self.client.get(f"{BASE_URL}/{account.id}")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
