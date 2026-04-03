@@ -126,6 +126,10 @@ You can now perform Tekton development locally, just like in the Cloud IDE lab e
 
 [John Rofrano](https://www.coursera.org/instructor/johnrofrano), Senior Technical Staff Member, DevOps Champion, @ IBM Research, and Instructor @ Coursera
 
+# DevOps Capstone Project
+
+![Build Status](https://github.com/lonsta784/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
+
 ## License
 
 Licensed under the Apache License. See [LICENSE](LICENSE)
