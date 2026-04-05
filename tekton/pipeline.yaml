@@ -50,15 +50,6 @@ spec:
         - name: image
           value: "python:3.9-slim"
 
-    - name: test
-      taskRef:
-        name: nose
-      runAfter:
-        - clone
-      workspaces:
-        - name: source
-          workspace: pipeline-workspace
-
     - name: tests
       workspaces:
         - name: source
