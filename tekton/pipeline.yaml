@@ -65,6 +65,11 @@ spec:
           workspace: pipeline-workspace
       taskRef:
         name: nose
+      runAfter:
+        - clone
+      workspaces:
+        - name: source
+          workspace: pipeline-workspace
       params:
       - name: database_uri
         value: "sqlite:///test.db"
