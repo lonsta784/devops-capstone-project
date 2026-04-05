@@ -24,6 +24,7 @@ HTTPS_ENVIRON = {'wsgi.url_scheme': 'https'}
 #  T E S T   C A S E S
 ######################################################################
 
+
 class TestAccountService(TestCase):
     """Account Service Tests"""
 
@@ -203,9 +204,9 @@ class TestAccountService(TestCase):
         resp = self.client.get(f"{BASE_URL}/{account.id}")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
 
-   ######################################################################
-   #  T E S T   C A S E S
-   ######################################################################
+    ######################################################################
+    #  T E S T   C A S E S
+    ######################################################################
 
     def test_security_headers(self):
         """It should return security headers"""
@@ -220,9 +221,9 @@ class TestAccountService(TestCase):
         for key, value in headers.items():
             self.assertEqual(response.headers.get(key), value)
 
-   ######################################################################
-   #  T E S T   C A S E S
-   ######################################################################
+    ######################################################################
+    #  T E S T   C A S E S
+    ######################################################################
 
     def test_cors_security(self):
         """It should return a CORS header"""
